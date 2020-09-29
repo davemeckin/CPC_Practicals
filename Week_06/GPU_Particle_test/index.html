@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>GPU Particle Test</title>
+		<link type="text/css" rel="stylesheet" href="./css/main.css">
+		
+	</head>
+	<body>
+		<div id="overlay">
+			<button id="startButton">Play</button>
+		</div>
+		<script src="js/three.js"></script>
+		<!--<script src="js/Tone.js"></script>-->
+		<script src="js/OrbitControls.js"></script>
+		<!--<script src="js/particles.js"></script>-->
+		<script src="js/GPUParticleSystem.js"></script>
+		<script src="js/main2.js"></script>
+		<script type="x-shader/x-vertex" id="vertexShader">
+				uniform float time;
+				attribute vec3 velocity;
+				attribute vec3 acceleration;
+				void main() {
+				    vec3 acc = acceleration * 0.5 * time * time;
+				    vec3 vel = velocity * time;
+				    gl_Position = projectionMatrix 
+				        * modelViewMatrix
+				        * vec4(acc + vel + position, 1.0);
+				    gl_PointSize = 10.0;
+				}
+		</script>
+		<script type="x-shader/x-fragment" id="fragmentShader">
+				varying vec3 vColor;
+				void main() {
+				   gl_FragColor = vec4(0,1.0,0,1.0);
+				}
+		</script>
+		
+	</body>
+</html>

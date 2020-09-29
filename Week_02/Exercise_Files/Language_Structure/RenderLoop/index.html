@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Intro to Three - Step 1</title>
+		
+	</head>
+	<body>
+		<script src="js/three.js"></script>
+		<script>
+
+			//Step 1
+
+
+			let scene = new THREE.Scene();
+			scene.background = new THREE.Color(0xDFDFDF);
+			let camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+
+			
+
+			let renderer = new THREE.WebGLRenderer();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			document.body.appendChild( renderer.domElement );
+
+			let geometry = new THREE.BoxGeometry();
+			let material = new THREE.MeshNormalMaterial( ); // Change this from normal to Phong in step 5
+			let cube = new THREE.Mesh( geometry, material );
+			
+			scene.add( cube );
+
+			camera.position.z = 5;
+
+			
+
+			let color = 0xFFFFFF;
+  			let intensity = 1;
+  			let light = new THREE.DirectionalLight(color, intensity);
+  			light.position.set(-1, 2, 4);
+  			scene.add(light);
+
+  			
+
+  			let ambientLight = new THREE.AmbientLight( 0xFFFFFF, 0.5 );
+    		scene.add( ambientLight );
+
+    		//https://discoverthreejs.com/book/first-steps/resize/
+  		
+
+  			function update() {
+
+			  //update stuff in here
+
+			}
+
+  			function render() {
+
+			  renderer.render( scene, camera );
+
+			}
+
+			 renderer.setAnimationLoop( () => {
+
+			    update();
+			    render();
+
+			  } );
+
+			 function stop() {
+
+			  renderer.setAnimationLoop( null );
+
+			}
+			
+			/*****/
+		</script>
+	</body>
+</html>

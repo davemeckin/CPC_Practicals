@@ -1,0 +1,73 @@
+{
+  "name": "threejs-es6-webpack-boilerplate",
+  "version": "1.0.0",
+  "author": "Ethan Soo Hon",
+  "description": "Boilerplate for threejs es6 webpack workflow",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
+    "build": " npm run clean && webpack --config webpack.prod.js",
+    "build-dll": "webpack --config webpack.vendor.config.js",
+    "start-dev": "webpack-dev-server --open --config webpack.dev.js",
+    "compress-draco": "gltf-pipeline -i ./src/static/models/dragon/scene.gltf -o ./src/static/models/dragon/dracoDragon.gltf -d",
+    "compress-glb": "gltf-pipeline -i ./src/static/models/dragon/scene.gltf -o ./src/static/models/dragon/scene.glb"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ethanny2/threejs-es6-webpack-barebones-boilerplate"
+  },
+  "keywords": [
+    "Threejs"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ethanny2/threejs-es6-webpack-barebones-boilerplate/issues"
+  },
+  "homepage": "https://github.com/ethanny2/PersonalSite#readme",
+  "devDependencies": {
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "compression-webpack-plugin": "^5.0.2",
+    "copy-webpack-plugin": "^6.1.1",
+    "css-loader": "^3.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-loader": "^3.0.4",
+    "eslint-plugin-prettier": "^3.1.4",
+    "exports-loader": "^1.1.0",
+    "file-loader": "^5.1.0",
+    "gltf-pipeline": "^2.1.10",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^6.0.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-webpack-plugin": "^2.4.2",
+    "imports-loader": "^1.1.0",
+    "mini-css-extract-plugin": "^0.8.2",
+    "node-sass": "^4.14.1",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
+    "postcss-loader": "^3.0.0",
+    "preload-webpack-plugin": "^3.0.0-beta.4",
+    "prettier": "^1.19.1",
+    "purgecss-webpack-plugin": "^1.6.0",
+    "rimraf": "^3.0.2",
+    "sass-loader": "^8.0.2",
+    "script-ext-html-webpack-plugin": "^2.1.4",
+    "stats.js": "^0.17.0",
+    "terser-webpack-plugin": "^2.3.8",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@tweenjs/tween.js": "^18.6.0",
+    "promise-polyfill": "8.1.3",
+    "shader-particle-engine": "git+https://github.com/blaze33/ShaderParticleEngine.git#d019c8bf3766997f39dccda943fcee9586e84d94",
+    "three": "^0.111.0"
+  }
+}
