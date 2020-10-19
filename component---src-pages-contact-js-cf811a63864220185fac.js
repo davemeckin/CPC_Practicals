@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[8],{"Cuy+":function(e,t,a){"use strict";a.r(t);var n=a("q1tI"),l=a.n(n),c=a("Bl7J"),o=a("vrFN");t.default=function(){return l.a.createElement(c.a,null,l.a.createElement(o.a,{title:"Contact"}),l.a.createElement("h1",null,"Contact Details"),l.a.createElement("p",null,"The module leader is Dave Meckin, his contact details can be found on the Blackboard site"))}}}]);
+//# sourceMappingURL=component---src-pages-contact-js-cf811a63864220185fac.js.map
