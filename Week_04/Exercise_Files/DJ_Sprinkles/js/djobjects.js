@@ -18,7 +18,7 @@ class Platter extends THREE.Mesh {
 		texture.offset.set( 0.5, 0.5 );
 		
 		let material = new THREE.MeshStandardMaterial( {
-			map: texture,
+			//map: texture,
 			side: THREE.DoubleSide,
 			color: new THREE.Color( 0xFFFFFF ),
 			
@@ -117,13 +117,13 @@ class Turntable extends THREE.Object3D {
 
 		let rotator = ( targetRotation - this.platter.rotation.z ) * 0.05;
 		// if there is one (or more) intersections
-
+		//console.log(intersects);
 			if ( intersects.length > 0 )
 				{
 					
 
 				    // if the closest object intersected is not the currently stored intersection object
-				    if ( intersects[ 0 ].object != this.intersected )
+				    if ( intersects[ 0 ].object !== this.intersected )
 				    {
 				        // restore previous intersection object (if it exists) to its original color
 				        if ( this.intersected ) {
@@ -133,15 +133,19 @@ class Turntable extends THREE.Object3D {
 				    }
 				        // store reference to closest object as current intersection object
 				        this.intersected = intersects[ 0 ].object;
+
 				        // store color of closest object (for later restoration)
 				        if (this.intersected.name === this.platter.name) {
 										
-										this.mouseOverThis = true;
 										
+										this.mouseOverThis = true;
+				        				console.log("Hi", intersects, this.intersected.name);
 										 this.intersected.currentHex = this.intersected.material.color.getHex();
 								        // set a new color for closest object
 								        this.intersected.material.color.setHex( 0xff00ff );
-								        //console.log("this.intersected", this.intersected);
+								       // console.log("this.intersected", this.intersected);
+				       } else {
+				       	this.mouseOverThis = false;
 				       }
 				       
 				    }
@@ -162,24 +166,25 @@ class Turntable extends THREE.Object3D {
 
 				if ((clicked) && (this.mouseOverThis) && (rotator > 0)) {
 					player.reverse = true;
-					player.playbackRate = (Math.abs(rotator))*10;
+					player.playbackRate = THREE.MathUtils.clamp(THREE.MathUtils.mapLinear(rotator, -0.5,0.5, -2.0,2.0),0.0,1.0);
 					this.platter.rotation.z += rotator;
-					//console.log((Math.abs(rotator))*10);
+					//console.log("1", rotator, player.playbackRate);
 				} else if ((!clicked) && (!this.mouseOverThis) && (rotator > 0)){
 					//player1.reverse = true;
 					//console.log("hello");
 					player.playbackRate = 1;
-
+					//console.log("2");
 				} else if ((clicked) && (this.mouseOverThis) && (rotator < 0.0)) {
 					//console.log(rotator);
 					player.reverse = false;
-					player.playbackRate = (Math.abs(rotator))*10;
+					player.playbackRate = THREE.MathUtils.clamp(THREE.MathUtils.mapLinear(rotator, 1.5,-0.5, 2.0,0.0),0.0,2.0);
 					this.platter.rotation.z += rotator;
-					//console.log((Math.abs(rotator))*10);
+					//console.log("3",rotator, player.playbackRate);
 				} else if ((!clicked) && (!this.mouseOverThis) && (rotator < 0)) {
 					//player1.reverse = false;
-					player.playbackRate = 1;
+					//player.playbackRate = 1;
 					//this.platter.update(rotator);
+					//console.log("4");
 				} else {
 					player.playbackRate = 1;
 				}
@@ -219,7 +224,7 @@ class Fader extends THREE.Mesh {
 
 	update(mouseX) {
 		//console.log(THREE.MathUtils.mapLinear(mouseX, -500,500, -10,10));
-		this.position.x = THREE.MathUtils.mapLinear(mouseX, -200,200, -10,10);
+		this.position.x = THREE.MathUtils.mapLinear(mouseX, -200,200, -20,20);
 
 	}
 
@@ -274,6 +279,8 @@ class Mixer extends THREE.Object3D{
 								        this.intersected.material.color.setHex( 0xff0000 );
 
 								        
+				       } else {
+				       	//this.mouseOverThis = false;
 				       }
 				       
 				    }
@@ -293,9 +300,9 @@ class Mixer extends THREE.Object3D{
 				}
 
 				if ((clicked) && (this.mouseOverThis)) {
-					let xfade  = THREE.MathUtils.clamp(THREE.MathUtils.mapLinear(mouseX, -200,200, 0.0,1.0),0.0,1.0);
+					let xfade  = THREE.MathUtils.clamp(THREE.MathUtils.mapLinear(mouseX, -100,100, 0.0,1.0),0.0,1.0);
 
-					console.log(xfade);
+					console.log(mouseX);
 					crossFade.fade.value = xfade;
 					this.fader.update(mouseX);
 				}

@@ -34,6 +34,8 @@ let windowHalfY = window.innerHeight / 2;
 
 let raycaster, mouse = { x : 0, y : 0 };
 
+let ray;
+
 function init() {
 
 	let overlay = document.getElementById( 'overlay' ); // removing the overlay play button at the beginning after pressing play
@@ -61,8 +63,8 @@ function init() {
 
 	// set the camera position
 	camera.position.x = 0;
-	camera.position.y = -50;
-	camera.position.z = 50;
+	camera.position.y = 0;
+	camera.position.z = 100;
 
 	crossFade = new Tone.CrossFade().toDestination();
 
@@ -77,7 +79,7 @@ function init() {
 	player2.autostart = true;
 
 	
-
+	ray = new THREE.Raycaster();
 
 	//create the orbit controls
 
@@ -178,21 +180,21 @@ function update() {
 	//let vector = new THREE.Vector3( mouse.x, mouse.y, 1 );
 	//projector.unprojectVector( vector, camera );
 	//let ray = new THREE.Raycaster( camera.position, vector.sub( camera.position ).normalize() );
-	let ray = new THREE.Raycaster();
+	
 	//console.log(mouse);
 	ray.setFromCamera( mouse, camera ); 
 	// create an array containing all objects in the scene with which the ray intersects
 	let intersects = ray.intersectObjects( scene.children, true );
-	//console.log(scene.children);
+	//console.log(intersects);
 	// INTERSECTED = the object in the scene currently closest to the camera 
 	//      and intersected by the Ray projected from the mouse position    
 
 	
 
-
+	mixer.update(clicked, mouseX, intersects, crossFade);
 	turntable1.update(clicked, targetRotation, intersects, player1);
 	turntable2.update(clicked, targetRotation, intersects, player2);
-	mixer.update(clicked, mouseX, intersects, crossFade);
+	
 	
 
 	delta += clock.getDelta();
@@ -244,7 +246,7 @@ function onDocumentMouseDown( event ) {
 	document.addEventListener( 'mouseout', onDocumentMouseOut, false );
 
 	mouseYOnMouseDown = event.clientY - windowHalfY;
-	targetRotationOnMouseDown = targetRotation;
+	//targetRotationOnMouseDown = targetRotation;
 
 }
 
@@ -257,6 +259,8 @@ function onDocumentMouseMove( event ) {
 	// update the mouse variable
 	mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
 	mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+
 
 	//clicked = true;
 

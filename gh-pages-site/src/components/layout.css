@@ -1,7 +1,7 @@
 html {
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  font: 112.5%/1.45em georgia, serif, sans-serif;
+  font: 112.5%/1.45em Helvetica, serif, sans-serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -10,7 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: hsla(0, 0%, 0%, 0.8);
-  font-family: georgia, serif;
+  font-family: Helvetica, sans-serif;
   font-weight: normal;
   word-wrap: break-word;
   font-kerning: normal;
@@ -567,6 +567,7 @@ tt,
 code {
   background-color: hsla(0, 0%, 0%, 0.04);
   border-radius: 3px;
+  font-size:  1em;
   font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     "Liberation Mono", Menlo, Courier, monospace;
   padding: 0;
@@ -575,6 +576,7 @@ code {
 }
 pre code {
   background: none;
+  font-size:  1em;
   line-height: 1.42;
 }
 code:before,
@@ -589,6 +591,32 @@ pre code:after,
 pre tt:before,
 pre tt:after {
   content: "";
+}
+.codeBlocks {
+  font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
+    "Liberation Mono", Menlo, Courier, monospace;
+}
+.imageWrapper {
+  border-style: none;
+  max-width: 25%;
+  max-height: 25%;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
+
+}
+
+.imageWrapper_main_page {
+  border-style: none;
+  max-width: 100%;
+  max-height: 50%;
+  margin: 0 auto;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
+  margin-bottom: 1.45rem;
 }
 @media only screen and (max-width: 480px) {
   html {

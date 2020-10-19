@@ -53,7 +53,7 @@ function init() {
 
 	// set the camera position
 
-	camera.position.z = 5;
+	camera.position.z = 50;
 
 	// Make highly-transparent plane
 	var fadeMaterial = new THREE.MeshBasicMaterial({
@@ -65,10 +65,10 @@ function init() {
 	var fadeMesh = new THREE.Mesh(fadePlane, fadeMaterial);
 
 	// Create Object3D to hold camera and transparent plane
-	camGroup = new THREE.Object3D();
-	camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-	camGroup.add(camera);
-	camGroup.add(fadeMesh);
+	//camGroup = new THREE.Object3D();
+	//camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+	//camGroup.add(camera);
+	///camGroup.add(fadeMesh);
 
 	// Put plane in front of camera
 	fadeMesh.position.z = -0.1;
@@ -198,10 +198,10 @@ window.addEventListener( 'resize', onWindowResize, false );
 
 function onWindowResize(){
 
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
+    //camera.aspect = window.innerWidth / window.innerHeight;
+   // camera.updateProjectionMatrix();
 
-    renderer.setSize( window.innerWidth, window.innerHeight );
+    //renderer.setSize( window.innerWidth, window.innerHeight );
 
 }
 

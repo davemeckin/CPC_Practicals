@@ -24,7 +24,7 @@ function init() {
 	clock = new THREE.Clock();
 	delta = 0;
 // 30 fps
-	interval = 1 / 12;
+	interval = 1 / 2;
 
 	scene = new THREE.Scene();
 	scene.background = new THREE.Color(0xDFDFDF);
@@ -75,12 +75,16 @@ function init() {
 	light.position.set(-1, 2, 4);
 	scene.add(light);
 
-
+	let gridHelper = new THREE.GridHelper(1000,100);
+	scene.add(gridHelper);
 
 	ambientLight = new THREE.AmbientLight( 0xFFFFFF, 0.5 );
 	scene.add( ambientLight );
 
 	walker = new Walker(0,0,0);
+
+	
+
 	play();
 }
 
@@ -90,47 +94,53 @@ class Walker {
 		this.x = x;
 		this.y = y;
 		this.z = z;
+		this.dotGeometry = new THREE.Geometry();
+		this.dotsArray = [];
 	}
 
 	step() {
-		let choice = this.getRandomInteger(6);
+		let choice = THREE.MathUtils.randInt(0,5);//this.getRandomInteger(6);
 		 if (choice == 0) {
-		      this.x += 0.1;
+		      this.x += 0.5;
 		    } else if (choice == 1) {
-		      this.x -= 0.1;
+		      this.x -= 0.5;
 		      //sound.setVolume( 0.3+(Math.random()*0.1) );
 		     // sound.offset = 0.05+(Math.random()*0.05);
 		     // sound.play();
 		    } else if (choice == 2) {
-		      this.y += 0.1;
+		      this.y += 0.5;
 		    } else if (choice == 3) {
-		      this.y -= 0.1;
+		      this.y -= 0.5;
 		    } else if (choice == 4) {
-		      this.z += 0.1;
+		      this.z += 0.5;
 		    } else {
-		      this.z -= 0.1;
+		      this.z -= 0.5;
 		      
 		    }
 
-		   sound.offset = 0.05+(Math.random()*0.1);
-		   sound.setVolume( 0.3+(Math.random()*0.1) );
-		   sound.play();
+			   sound.offset = 0.05+(Math.random()*0.1);
+			   sound.setVolume( 0.3+(Math.random()*0.1) );
+			   sound.play();
 
 		
 	}
 
-	getRandomInteger(max){ 
+	// getRandomInteger(max){ 
 
-		return Math.floor(Math.random() * Math.floor(max));
+	// 	return Math.floor(Math.random() * Math.floor(max));
 
-	}
+	// }
 
 	display() {
 		this.dotGeometry = new THREE.Geometry();
 		this.dotGeometry.vertices.push(new THREE.Vector3( this.x, this.y, this.z));
 		this.dotMaterial = new THREE.PointsMaterial( { size: 5, sizeAttenuation: false,color: 0x111111 } );
 		this.dot = new THREE.Points( this.dotGeometry, this.dotMaterial );
-		
+		 this.dot.translateX(this.x);
+		 this.dot.translateY(this.y);
+		 this.dot.translateZ(this.z);
+		this.dotsArray.push(this.dot.getWorldPosition(new THREE.Vector3()));
+		//console.log(this.dot.position);
 		scene.add(this.dot);
 		
 
@@ -156,7 +166,6 @@ function stop() {
 function render() {
 	walker.display();
 	renderer.render( scene, camera );
-
 }
 
 function play() {
@@ -173,6 +182,7 @@ function update() {
 
 	orbit.update();
 
+
 	 delta += clock.getDelta();
 
 	   	if (delta  > interval) {
@@ -180,6 +190,7 @@ function update() {
 	       walker.step();
 
 	       delta = delta % interval;
+	       console.log(delta, interval);
 	   	}
 
 	
@@ -198,6 +209,53 @@ function onDocumentKeyDown(event) {
     var keyCode = event.keyCode;
     // up
     if (keyCode == 87) {
+   	
+ //    var geom = new THREE.BufferGeometry().setFromPoints(walker.dotsArray);
+	// var cloud = new THREE.Points(
+	//   geom,
+	//   new THREE.PointsMaterial({ color: 0x00FF00, size: 0.025 })
+	// );
+	// scene.add(cloud);
+
+	// // triangulate x, z
+	// var indexDelaunay = Delaunator.from(
+	//   walker.dotsArray.map(v => {
+	//   	console.log(v.x,v.z);
+	//     return [v.x, v.y, v.z];
+	//   })
+	// );
+
+	// var meshIndex = []; // delaunay index => three.js index
+	// for (let i = 0; i < indexDelaunay.triangles.length; i++){
+	//   meshIndex.push(indexDelaunay.triangles[i]);
+	// }
+
+	// geom.setIndex(meshIndex); // add three.js index to the existing geometry
+	// //geom.computeVertexNormals();
+	// var mesh = new THREE.Mesh(
+	//   geom, // re-use the existing geometry
+	//   new THREE.MeshLambertMaterial({ color: "purple", wireframe: true })
+	// );
+	// console.log(geom);
+	// scene.add(mesh);
+
+	for(let i = 0; i < walker.dotsArray.length-1; i++) {
+		let material = new THREE.LineBasicMaterial({
+		    color: 0x0000ff
+		});
+
+		let geometry = new THREE.Geometry();
+		geometry.vertices.push(
+		    walker.dotsArray[i],
+		    walker.dotsArray[i+1]
+		);
+
+		let line = new THREE.Line( geometry, material );
+		console.log(geometry);
+		scene.add( line );
+	}
+
+	
        
         // down
     } else if (keyCode == 83) {

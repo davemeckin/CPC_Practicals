@@ -16,6 +16,8 @@ let clock, delta, interval; // an interval generator so that we can clamp our fr
 let startButton = document.getElementById( 'startButton' ); // our start screen - this is mainly to ensure our audio gets started at the right time
 startButton.addEventListener( 'click', init );
 
+let majorScale = [0,4,7,11, 14];
+
 function init() {
 
 	let overlay = document.getElementById( 'overlay' ); // removing the overlay play button at the beginning after pressing play
@@ -23,7 +25,7 @@ function init() {
 	
 	let synthy = new Tone.MonoSynth({
 				oscillator: {
-					type: "sawtooth"
+					type: "square"
 				},
 				envelope: {
 					attack: 3
@@ -35,7 +37,7 @@ function init() {
 					amount: 0,
 				},
 				filter: {
-					frequency: 3000
+					frequency: 20000
 				}
 			});
 	//synthy.toDestination();
@@ -60,9 +62,12 @@ function init() {
 	camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
 	// set the camera position
-	camera.position.x = -10;
-	camera.position.y = 5;
-	camera.position.z = 5;
+	camera.position.x = 40;
+	//camera.position.y = 5;
+	camera.position.z = 50;
+
+	let gridHelper = new THREE.GridHelper(1000,100);
+	scene.add(gridHelper);
 
 	//sound for single source and single listener
 
@@ -104,44 +109,38 @@ function init() {
 	scene.add( ambientLight );
 
 
-	period = 120;
+	period = 60;
 	amplitude = 10;
 	angle = 0;
 	aVelocity = 0.05;
 	
 
 	entities = [];
-	numEntities = 16;
+	numEntities = 48;
 	
 
 	oscillators = [];
 	synths = [];
 
 	for(let i = 0; i < numEntities; i++) {
-		let freq = 70*((i+1));
+		//let freq = 40*((i+1));
+		let octave = parseInt(i/12);
+		let freq = 36 + (majorScale[i%5] + (octave*12));
 			synths.push(new Tone.MonoSynth({
 				oscillator: {
-					type: "sine"
+					type: "sawtooth"
 				},
 				envelope: {
-					attack: 3
-				},
-				filterEnvelope: {
-					attack: 3,
-					decay: 3,
-					sustain: 1,
-					amount: 0,
-				},
-				filter: {
-					frequency: 3000
+					attack: 0.01
 				}
+				
 			}));
 	
 		
 		synths[i].toDestination();
-		synths[i].triggerAttack(freq,0,0.01);
-		console.log(synths[i].frequency.value);
-		for (let j = 0;j < numEntities; j++){
+		synths[i].triggerAttack(Tone.Frequency(freq, "midi")+Math.random(6),0,0.01);
+		console.log(octave,freq);
+		for (let j = 0;j < numEntities/2; j++){
 			oscillators.push(new Array());
 			
 			oscillators[i].push(new Oscillator(i-10, 0, j-5,i*0.25));
@@ -164,7 +163,7 @@ class Oscillator {
 
 		this.angle = new THREE.Vector3(0,offset,0);
 		this.velocity = new THREE.Vector3(0.01,0.01,0.01);
-		this.amplitude = new THREE.Vector3(1.5,1.5,1.5);
+		this.amplitude = new THREE.Vector3(0.005,9.5,0.5);
 		this.geo = new THREE.BoxGeometry(0.5,0.5,0.5);
 		this.mat = new THREE.MeshPhongMaterial( ); // Change this from normal to Phong in step 5
 		this.box = new THREE.Mesh( this.geo, this.mat );
@@ -183,7 +182,9 @@ class Oscillator {
 
 	display() {
 		 //let x = Math.sin(this.angle.x)*this.amplitude.x;
-    	 let y = Math.sin(this.angle.y)*this.amplitude.y;
+		 let perl = perlin.get(this.angle.y,this.amplitude.y)*10;
+		 //console.log(perl);
+    	 let y = Math.sin(this.angle.y*0.333)*this.amplitude.y+perl;
     	 //let z = Math.sin(this.angle.z)*this.amplitude.z;
 
 
@@ -205,7 +206,7 @@ function stop() {
 
 function render() {
 	for(let i = 0; i < numEntities; i++) {
-		for (let j = 0;j < numEntities; j++){
+		for (let j = 0;j < numEntities/2; j++){
 			oscillators[i][j].display();
 		}
 	}
@@ -249,12 +250,12 @@ function update() {
 
    	for(let i = 0; i < numEntities; i++) {
 
-		for (let j = 0;j < numEntities; j++){
+		for (let j = 0;j < numEntities/2; j++){
 			oscillators[i][j].oscillate();
 		}
 
-		synths[i].volume.value = Tone.gainToDb(oscillators[i][0].box.position.y+1.5);
-		//console.log(i, synths[i].volume.value);
+		synths[i].volume.value = Tone.gainToDb(THREE.MathUtils.clamp(THREE.MathUtils.mapLinear(oscillators[i][0].box.position.y,-1.5, 9.5, 0, 3),0,1));
+		//console.log(i,synths[i].volume.value);
 	}
 
 	/*cube.rotation.x += 0.01;
