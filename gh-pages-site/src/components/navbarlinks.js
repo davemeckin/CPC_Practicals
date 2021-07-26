@@ -7,9 +7,10 @@ const NavItem = styled(Link)`
   color: #111;
   display: inline-block;
   white-space: nowrap;
-  margin: 0 1vw;
+  margin: 0 0.6vw;
   transition: all 200ms ease-in;
   position: relative;
+
 
   :after {
     position: absolute;
@@ -32,7 +33,7 @@ const NavItem = styled(Link)`
   }
 
   @media (max-width: 768px) {
-    padding: 20px 0;
+    padding: 10px 0;
     font-size: 1.5rem;
     z-index: 6;
   }
@@ -41,11 +42,14 @@ const NavbarLinks = () => {
   return (
     <>
       <NavItem to="/">Home</NavItem>
-      <NavItem to="/workshop_01">Workshop 1</NavItem>
-      <NavItem to="/workshop_02">Workshop 2</NavItem>
-      <NavItem to="/workshop_03">Workshop 3</NavItem>
-      <NavItem to="/workshop_04">Workshop 4</NavItem>
-      <NavItem to="/404">Contact</NavItem>
+      <NavItem to="/workshop_01">Week 01</NavItem>
+      <NavItem to="/workshop_02">Week 02</NavItem>
+      <NavItem to="/workshop_03">Week 03</NavItem>
+      <NavItem to="/workshop_04">Week 04</NavItem>
+      <NavItem to="/workshop_06">Week 06</NavItem>
+      <NavItem to="/workshop_07">Week 07/08</NavItem>
+      <NavItem to="/workshop_08">Week 07/08 Part 2</NavItem>
+      
     </>
   )
 }

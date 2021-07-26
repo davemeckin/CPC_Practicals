@@ -12,7 +12,7 @@ const Navigation = styled.nav`
   text-transform: uppercase;
   border-bottom: 2px solid #33333320;
   margin: 0 auto;
-  padding: 0 5vw;
+  padding: 0 0.5vw;
   z-index: 2;
   align-self: center;
   
@@ -93,7 +93,7 @@ const Navbar = () => {
 
   return (
     <Navigation>
-      <Logo />
+     
       <Toggle
         navbarOpen={navbarOpen}
         onClick={() => setNavbarOpen(!navbarOpen)}

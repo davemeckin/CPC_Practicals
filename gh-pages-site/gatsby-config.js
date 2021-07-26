@@ -41,7 +41,7 @@
 */
 
 module.exports = {
-  pathPrefix: "CPC_Practicals",
+  pathPrefix: `/CPC_Practicals`,
   siteMetadata: {
     title: `Creative and Physical Computing Practicals`,
     description: `Learning Three.js and Tone.js to create interactive web experiences.`,

@@ -51,12 +51,46 @@ const Workshop03 = ({data}) => (
     
 
     <h2>Task 1 - Importing Libraries and Declaring Our Variables</h2>
-    <p>
+
+     <p>
     If you have reached here without completing workshops 1 and 2, please return to those as this is where we make the template that we start from on the following workshops.
-	</p>
-	<p>Right, create a new codesandbox project using the final workshop 1 task as a template.</p>
+  </p>
+  <p>Right, create a new codesandbox project using the final workshop 1 task as a template.</p>
+
+    <p>First of all, we're going to use the same timing code from workshop 2, which means initialising the following variables towards the top of the init() function:</p>
+   <p></p>
+
+    <code>
+    <CodeBlock text = {`// clock generator to ensure we can clamp some operations at different timed rates if needed
+
+  clock = new THREE.Clock();
+  delta = 0;
+  interval = 1 / 2; // 2 fps`} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
+  </code>
+
+  <p></p>
+    <p>And then updating our update function as follows:</p>
+
+    <p></p>
+
+    <code>
+    <CodeBlock text = {`function update() {
+  orbit.update();
+  //update stuff in here
+  delta += clock.getDelta();
+
+  if (delta  > interval) {
+    // The draw or time dependent code are here
+    delta = delta % interval;
+  }
+}`} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
+  </code>
+
+  <p></p>
+  <p>We're actually only adding this in case we need to print some stuff to our console to debug in this task. Turns out printing at 60fps AND animating AND making sound is quite hardcore for the browser to handle...</p>
+   
 	
-	<p>In the explorer tab on the left hand, navigate to the dependencies search box. You should already be able to see that we have three as a dependency. Now we're going to add two more simply by searching for the names and selecting them. Let's add "tone" and "noisejs". So, your dependenices tab should look like this now:</p>
+	<p>OK, in the explorer tab on the left hand, navigate to the dependencies search box. You should already be able to see that we have three as a dependency. Now we're going to add two more simply by searching for the names and selecting them. Let's add "tone" and "noisejs". So, your dependenices tab should look like this now:</p>
 	
 	<p></p>
 
@@ -117,7 +151,7 @@ let musicalScale;`} language = {"javascript"} theme = {dracula} showLineNumbers 
 		
 	}
 
-	step() {
+	update() {
 	
 		
 	}
@@ -182,7 +216,7 @@ let musicalScale;`} language = {"javascript"} theme = {dracula} showLineNumbers 
 
     
 
-	<p>Right, towards the bottom of init() before we call play(), let's initialise the global variables we made earlier. We'll have 36 rows of movers, then we'll create the blank arrays that we're going to fill. And finally let's create our musical scale array which will be used later to pick the frequencies that we're going to have each mover play: </p>
+	<p>Right, towards the bottom of init() before we call play(), let's initialise the global variables we made earlier. We'll have 36 rows of movers, then we'll create the blank arrays that we're going to fill. <strong>(If you are running on an older machine, you might find you can only have numMovers of 18 or 24 here, because the audio side of things is quite CPU intensive)</strong>. And finally let's create our musical scale array which will be used later to pick the frequencies that we're going to have each mover play: </p>
 
 	<code>
     <CodeBlock text = {`numMovers = 36;
@@ -250,7 +284,8 @@ function update() {
 	}
 }`} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
 	</code>
-
+<p></p>
+  
     <p>The same is required for the display() function, which we call from render, so let's update that as follows too: </p>
 
      <p></p>
@@ -277,7 +312,7 @@ function render() {
     <p>Right we have our grid layout, but nothing is moving yet. First of all, let's make our movers oscillate update and down using the sine function. With all the vectors that we create earlier and the in built javascript sine function, we can do this really easily by adding the following line to the update method in our Mover class. Let's add it BELOW the line where we add the velocity and angle vectors:</p>
     
 
-    <p>Sine</p>
+    <p>Check the slides / lecture recording to remind yourself of what the sine function will look like</p>
        <code>
     <CodeBlock text = {`this.y = Math.sin(this.angle.y) * this.amplitude.y;`} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
 	</code>
@@ -427,7 +462,7 @@ let synthy = new Tone.MonoSynth({ // declare synth and set some parameters
     <ul>
     	<li>Change the geometry type to a different shape. Use <a href="https://threejsfundamentals.org/threejs/lessons/threejs-primitives.html" target="_blank">this list</a> to try and implement something a bit more interesting than a cube... </li>
     	<li>Try adding some <a href="https://dustinpfister.github.io/2018/04/16/threejs-fog/" target="_blank">fog effects</a> </li>
-    	<li>Change the musical scale array to different integers to see how that can </li>
+    	<li>Change the musical scale array to different integers to see how that can alter the tonality of the piece</li>
     	<li>Try changing the y values in the amplitude and velocity vectors in the Mover class</li>
     	<li>Add effects to the sound like <a href="https://tonejs.github.io/examples/reverb/" target="_blank">reverb</a> and <a href="https://tonejs.github.io/docs/14.7.33/FeedbackDelay" target="_blank">delay</a>  </li>
     	<li>Try and make multiple waves to get cross rhythms and more complex audio-visual structures?</li>
@@ -436,9 +471,9 @@ let synthy = new Tone.MonoSynth({ // declare synth and set some parameters
     </ul>
     </p>
 
-    <p>Right we're at the final task for this workshop hooray! Nice one for making our "hello world" but also creating a template that we can work from from now on. One final thing to experiment with, try adding a <a href="https://threejs.org/docs/#api/en/helpers/GridHelper" target="_blank">grid helper</a> to your scene and see how that changes the visual landscape. This is a tiny stretch goal so we're not going to tell you exactly how to do it!</p>
+    <p>Right we're at the final task for this workshop hooray! Nice one for making our generative noise-based project. </p>
     <p>Super important final task: go to file->export to .zip in your codesandbox and download your project!</p>
-    <p>Remember how critical it is to keep a good folder structure? Make sure you start as you mean to go on and make a folder for this module, then another folder inside that one called "week 1".</p>
+    <p>Remember how critical it is to keep a good folder structure? Make sure you start as you mean to go on and make a folder for this module, then another folder inside that one called "week 3".</p>
    
 
     <Link to="/">Go back to the homepage</Link>

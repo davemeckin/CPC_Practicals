@@ -325,8 +325,8 @@ let intersects = raycaster.intersectObjects(scene.children, true);`} language = 
     <p>Have a go at trying to code this yourself. Don't worry we have provided the solution below, but you should be trying to think through these interaction design problems yourself too so spend 10-15 minutes trying it out. Here is some pseudo code:</p>
      <code>
 						<CodeBlock text = {`
-if intersects has something in it:
-	if the first thing in intersects is not our object that we're intersected intersects:
+if intersects array has something in it:
+	if the first thing in intersects array does NOT match the name of the object we're concerned with:
 		change the colour of our object to its normal colour
 		ensure our mouseOverThis flag is false
 	if the first object in intersects does match the name of our object
@@ -375,7 +375,7 @@ else if the mouse if NOT clicked AND mouseOverThis is false AND our direction of
     let rotator = targetRotation - this.platter.rotation.z;
 
     // if there is one (or more) intersections
-    //console.log(intersects);
+   
     if (intersects.length > 0) {
       // if the closest object intersected is not the currently stored intersection object
       if (intersects[0].object !== this.intersected) {
@@ -492,8 +492,8 @@ else if the mouse if NOT clicked AND mouseOverThis is false AND our direction of
 
      <code>
 						<CodeBlock text = {`
-if intersects has something in it:
-	if the first thing in intersects is not our object that we're intersected intersects:
+if intersects array has something in it:
+	if the first thing in intersects array does NOT match the name of the object we're concerned with:
 		change the colour of our object to its normal colour
 		ensure our mouseOverThis flag is false
 	if the first object in intersects does match the name of our object
@@ -561,13 +561,13 @@ if the mouse is clicked AND the mouseOverThis flag is true:
     }
 
     if (clicked && this.mouseOverThis) {
-      let xfade = THREE.MathUtils.clamp(
+      this.xfade = THREE.MathUtils.clamp(
         THREE.MathUtils.mapLinear(mouseX, -0.3, 0.3, 0.0, 1.0),
         0.0,
         1.0
       );
 
-      crossFade.fade.value = xfade;
+      crossFade.fade.value = this.xfade;
 
       this.fader.update(mouseX);
     } 
@@ -603,7 +603,7 @@ if the mouse is clicked AND the mouseOverThis flag is true:
 
     <p>Right we're at the final task for this workshop hooray! Nice one for making our dj mixer! </p>
     <p>Super important final task: go to file->export to .zip in your codesandbox and download your project!</p>
-    <p>Remember how critical it is to keep a good folder structure? Make sure you start as you mean to go on and make a folder for this module, then another folder inside that one called "week 1".</p>
+    <p>Remember how critical it is to keep a good folder structure? Make sure you start as you mean to go on and make a folder for this module, then another folder inside that one called "week 4".</p>
    
 
     <Link to="/">Go back to the homepage</Link>

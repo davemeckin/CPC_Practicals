@@ -371,7 +371,7 @@ function update() {
      sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
    ></iframe>
    
-	<p>For now, we're just going to use Three.js's sound capabilities which allow us to play back sound files and some simple panning etc. Hopefully you're now comfortable with the interface of codesandbox. So make a new folder in the main directory (i.e in the same folder as "src") in your codesandbox project 
+	<p>For now, we're just going to use Three.js's sound capabilities which allow us to play back sound files and some simple panning etc. Hopefully you're now comfortable with the interface of codesandbox. So make a new folder in the root directory (i.e a new folder outside the one called "src") in your codesandbox project 
     and call it "sounds".</p>
     <p>
     Use the upload button to upload a sound file. Ideally we will use a .mp3 as they're smaller. We made a <a href="https://uweacuk-my.sharepoint.com/:f:/g/personal/dave_meckin_uwe_ac_uk/Enjdizr--AhKhGku2oxVW9QB2kmkvOr7sn98KoDl2Rlqhg?e=kGB8hN" target="_blank">simple looping drone sound called CPC_Basic_Drone_Loop.mp3</a> that you can download if you'd prefer to use this for speed's sake. Download it then upload to your "sounds" folder on codesandbox.

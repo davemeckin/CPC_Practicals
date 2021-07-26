@@ -7,6 +7,13 @@ import Navbar from "../components/navbar"
 //import CodeBlock from "../components/codeblock"
 import { CopyBlock } from "react-code-blocks";
 import { CodeBlock, dracula, github } from "react-code-blocks";
+import {
+    Accordion,
+    AccordionItem,
+    AccordionItemHeading,
+    AccordionItemButton,
+    AccordionItemPanel,
+} from 'react-accessible-accordion';
 import "../components/layout.css"
 
 //var thisIsMyCopy = "function myTimer() \n { \n let d = new Date();document.getElementById(\"demo\").innerHTML = d.toLocaleTimeString();}";
@@ -73,7 +80,8 @@ const Workshop02 = () => (
 
 	clock = new THREE.Clock();
 	delta = 0;
-	interval = 1 / 12; // 12 fps`} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
+	interval = 1 / 10; // 10 fps
+  `} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
 	</code>
 
 	<p></p>
@@ -153,19 +161,46 @@ const Workshop02 = () => (
 	let choice = THREE.MathUtils.randInt(0,5);
 	 if (choice == 0) {
 	      this.x += 0.5;
-	    } else if (choice == 1) {
+	    } else if (choice === 1) {
 	      this.x -= 0.5;
-	    } else if (choice == 2) {
+	    } else if (choice === 2) {
 	      this.y += 0.5;
-	    } else if (choice == 3) {
+	    } else if (choice === 3) {
 	      this.y -= 0.5;
-	    } else if (choice == 4) {
+	    } else if (choice === 4) {
 	      this.z += 0.5;
 	    } else {
 	      this.z -= 0.5;
 	    }
 	}`} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
 	</code>
+  <p></p>
+
+   <Accordion allowZeroExpanded = "true">
+            <AccordionItem>
+                <AccordionItemHeading>
+                    <AccordionItemButton>
+                        If you want to see a slightly more shorthand way of achieving a similar output, this could also work (there are plenty of ways to skin a cat in creative coding)
+                    </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                    <p>
+                        <code>
+    <CodeBlock text = {`step() {
+ // generate a position relative to the current one
+ let axis = THREE.MathUtils.randInt(1, 3);
+ let amnt = THREE.MathUtils.randInt(-1, 1);
+ if (axis === 1) this.x += amnt;
+ if (axis === 2) this.y += amnt;
+ if (axis === 3) this.z += amnt;
+}`} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
+  </code>
+        
+                    </p>
+                </AccordionItemPanel>
+            </AccordionItem>
+            
+      </Accordion>
 
     <p></p>
 	<p>Then, finally, still in our step() function, we actually want to draw a dot. Now, as we saw last time with drawing a cube, we do actually need quite a few lines of code to draw something because our "thing" is always made up of separate component parts: Geometry+Material are used to create a Mesh.
@@ -232,10 +267,7 @@ const Workshop02 = () => (
 	<p></p>
 	<p></p>
 
-    <code>
-    <CodeBlock text = {`//some code`} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
-	</code>
-
+ 
 	<p></p>
 
     <p></p>
@@ -288,6 +320,7 @@ const Workshop02 = () => (
     	<li>Change the geometry type to a different shape. Use <a href="https://threejsfundamentals.org/threejs/lessons/threejs-primitives.html" target="_blank">this list</a> to try and implement something a bit more interesting than a cube... </li>
     	<li>Change the size and/or colours of the new object created depending on the step decision. So this would mean that you would have to update each "if else" statement to add code which would custimise the size and colour...</li>
     	<li>Change the sound that is played depending on the choice of which step direction is taken. This could mean separate PositionalAudio objects or dynamically setting the buffer of a single PositionalAudio object perhaps?</li>
+      <li>Make another instance of walker and start it off at different 3D coordinates? And another? Can you build multiple structures?</li>
     </ul>
     </p>
    

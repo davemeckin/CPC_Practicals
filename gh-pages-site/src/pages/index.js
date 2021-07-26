@@ -10,17 +10,13 @@ const IndexPage = ({data}) => (
   <Layout>
     <Navbar/>
     <SEO title="Home" />
-    <h1>Hello and Welcome</h1>
-    <Image fileName = "cpc_header_03.png"/>
-    <div className="imageWrapper_main_page">
-  <Img
-        
-        fluid={data.file.childImageSharp.fluid}
-        alt=""
-        loading="eager"
-      />
+    <p></p>
+    <h1>Hello and Welcome to CPC 2020/2021!</h1>
+    <p></p>
+    <p>Here you will find the workshop materials with embedded code examples to help your learning and development.</p>
+    <p></p>
+    <Image fileName = "CPC_Splash-01.png"/>
 
-      </div>
       <p></p>
     
   </Layout>
