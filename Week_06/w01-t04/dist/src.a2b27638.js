@@ -117,72 +117,105 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../../../../../../../node_modules/three/build/three.module.js":[function(require,module,exports) {
+})({"node_modules/three/build/three.module.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.AlwaysStencilFunc = exports.AlwaysDepth = exports.AlphaFormat = exports.AdditiveBlending = exports.AdditiveAnimationBlendMode = exports.AddOperation = exports.AddEquation = exports.ACESFilmicToneMapping = void 0;
 exports.AmbientLight = AmbientLight;
 exports.AmbientLightProbe = AmbientLightProbe;
 exports.AnimationClip = AnimationClip;
 exports.AnimationLoader = AnimationLoader;
 exports.AnimationMixer = AnimationMixer;
 exports.AnimationObjectGroup = AnimationObjectGroup;
+exports.AnimationUtils = void 0;
 exports.ArcCurve = ArcCurve;
 exports.ArrayCamera = ArrayCamera;
+exports.AudioListener = exports.AudioContext = exports.AudioAnalyser = exports.Audio = exports.ArrowHelper = void 0;
 exports.AudioLoader = AudioLoader;
+exports.AxesHelper = void 0;
 exports.AxisHelper = AxisHelper;
+exports.BasicShadowMap = exports.BasicDepthPacking = exports.BackSide = void 0;
 exports.BinaryTextureLoader = BinaryTextureLoader;
 exports.Bone = Bone;
 exports.BooleanKeyframeTrack = BooleanKeyframeTrack;
 exports.BoundingBoxHelper = BoundingBoxHelper;
+exports.BoxHelper = exports.BoxGeometry = exports.BoxBufferGeometry = exports.Box3Helper = exports.Box3 = exports.Box2 = void 0;
 exports.BufferAttribute = BufferAttribute;
 exports.BufferGeometry = BufferGeometry;
 exports.BufferGeometryLoader = BufferGeometryLoader;
+exports.Cache = exports.ByteType = void 0;
 exports.Camera = Camera;
+exports.CameraHelper = void 0;
 exports.CanvasRenderer = CanvasRenderer;
 exports.CanvasTexture = CanvasTexture;
 exports.CatmullRomCurve3 = CatmullRomCurve3;
+exports.Clock = exports.ClampToEdgeWrapping = exports.CircleGeometry = exports.CircleBufferGeometry = exports.CineonToneMapping = void 0;
 exports.ClosedSplineCurve3 = ClosedSplineCurve3;
+exports.Color = void 0;
 exports.ColorKeyframeTrack = ColorKeyframeTrack;
 exports.CompressedTexture = CompressedTexture;
 exports.CompressedTextureLoader = CompressedTextureLoader;
+exports.ConeGeometry = exports.ConeBufferGeometry = void 0;
 exports.CubeCamera = CubeCamera;
+exports.CubeRefractionMapping = exports.CubeReflectionMapping = exports.CubeGeometry = void 0;
 exports.CubeTexture = CubeTexture;
 exports.CubeTextureLoader = CubeTextureLoader;
+exports.CubeUVRefractionMapping = exports.CubeUVReflectionMapping = void 0;
 exports.CubicBezierCurve = CubicBezierCurve;
 exports.CubicBezierCurve3 = CubicBezierCurve3;
 exports.CubicInterpolant = CubicInterpolant;
+exports.CullFaceNone = exports.CullFaceFrontBack = exports.CullFaceFront = exports.CullFaceBack = void 0;
 exports.Curve = Curve;
 exports.CurvePath = CurvePath;
+exports.Cylindrical = exports.CylinderGeometry = exports.CylinderBufferGeometry = exports.CustomToneMapping = exports.CustomBlending = void 0;
 exports.DataTexture = DataTexture;
 exports.DataTexture2DArray = DataTexture2DArray;
 exports.DataTexture3D = DataTexture3D;
 exports.DataTextureLoader = DataTextureLoader;
+exports.DepthStencilFormat = exports.DepthFormat = exports.DefaultLoadingManager = exports.DecrementWrapStencilOp = exports.DecrementStencilOp = void 0;
 exports.DepthTexture = DepthTexture;
 exports.DirectionalLight = DirectionalLight;
+exports.DirectionalLightHelper = void 0;
 exports.DiscreteInterpolant = DiscreteInterpolant;
+exports.DstColorFactor = exports.DstAlphaFactor = exports.DoubleSide = exports.DodecahedronGeometry = exports.DodecahedronBufferGeometry = void 0;
+exports.DstColorFactor = exports.DstAlphaFactor = exports.DoubleSide = exports.DodecahedronGeometry = exports.DodecahedronBufferGeometry = void 0;
 exports.DynamicBufferAttribute = DynamicBufferAttribute;
+exports.EdgesGeometry = exports.DynamicReadUsage = exports.DynamicDrawUsage = exports.DynamicCopyUsage = void 0;
 exports.EdgesHelper = EdgesHelper;
 exports.EllipseCurve = EllipseCurve;
+exports.Euler = exports.EquirectangularRefractionMapping = exports.EquirectangularReflectionMapping = exports.EqualStencilFunc = exports.EqualDepth = void 0;
 exports.EventDispatcher = EventDispatcher;
+exports.Face3 = exports.ExtrudeGeometry = exports.ExtrudeBufferGeometry = void 0;
 exports.Face4 = Face4;
+exports.FaceColors = void 0;
 exports.FileLoader = FileLoader;
+exports.FlatShading = void 0;
 exports.Float32Attribute = Float32Attribute;
 exports.Float32BufferAttribute = Float32BufferAttribute;
 exports.Float64Attribute = Float64Attribute;
 exports.Float64BufferAttribute = Float64BufferAttribute;
+exports.FogExp2 = exports.Fog = exports.FloatType = void 0;
 exports.Font = Font;
 exports.FontLoader = FontLoader;
+exports.Frustum = exports.FrontSide = void 0;
 exports.GLBufferAttribute = GLBufferAttribute;
+exports.GammaEncoding = exports.GLSL3 = exports.GLSL1 = void 0;
 exports.Geometry = Geometry;
+exports.GridHelper = exports.GreaterStencilFunc = exports.GreaterEqualStencilFunc = exports.GreaterEqualDepth = exports.GreaterDepth = exports.GeometryUtils = void 0;
 exports.Group = Group;
+exports.HalfFloatType = void 0;
 exports.HemisphereLight = HemisphereLight;
+exports.HemisphereLightHelper = void 0;
 exports.HemisphereLightProbe = HemisphereLightProbe;
+exports.IcosahedronGeometry = exports.IcosahedronBufferGeometry = void 0;
 exports.ImageBitmapLoader = ImageBitmapLoader;
 exports.ImageLoader = ImageLoader;
+exports.ImageUtils = void 0;
 exports.ImmediateRenderObject = ImmediateRenderObject;
+exports.IncrementWrapStencilOp = exports.IncrementStencilOp = void 0;
 exports.InstancedBufferAttribute = InstancedBufferAttribute;
 exports.InstancedBufferGeometry = InstancedBufferGeometry;
 exports.InstancedInterleavedBuffer = InstancedInterleavedBuffer;
@@ -193,28 +226,41 @@ exports.Int32Attribute = Int32Attribute;
 exports.Int32BufferAttribute = Int32BufferAttribute;
 exports.Int8Attribute = Int8Attribute;
 exports.Int8BufferAttribute = Int8BufferAttribute;
+exports.IntType = void 0;
 exports.InterleavedBuffer = InterleavedBuffer;
 exports.InterleavedBufferAttribute = InterleavedBufferAttribute;
 exports.Interpolant = Interpolant;
+exports.InvertStencilOp = exports.InterpolateSmooth = exports.InterpolateLinear = exports.InterpolateDiscrete = void 0;
 exports.JSONLoader = JSONLoader;
+exports.KeepStencilOp = void 0;
 exports.KeyframeTrack = KeyframeTrack;
 exports.LOD = LOD;
+exports.Layers = exports.LatheGeometry = exports.LatheBufferGeometry = void 0;
 exports.LensFlare = LensFlare;
+exports.LessStencilFunc = exports.LessEqualStencilFunc = exports.LessEqualDepth = exports.LessDepth = void 0;
 exports.Light = Light;
 exports.LightProbe = LightProbe;
 exports.LightShadow = LightShadow;
 exports.Line = Line;
+exports.Line3 = void 0;
 exports.LineBasicMaterial = LineBasicMaterial;
 exports.LineCurve = LineCurve;
 exports.LineCurve3 = LineCurve3;
 exports.LineDashedMaterial = LineDashedMaterial;
 exports.LineLoop = LineLoop;
+exports.LinePieces = void 0;
 exports.LineSegments = LineSegments;
+exports.LinearFilter = exports.LinearEncoding = exports.LineStrip = void 0;
+exports.LinearFilter = exports.LinearEncoding = exports.LineStrip = void 0;
 exports.LinearInterpolant = LinearInterpolant;
+exports.LinearToneMapping = exports.LinearMipmapNearestFilter = exports.LinearMipmapLinearFilter = exports.LinearMipMapNearestFilter = exports.LinearMipMapLinearFilter = void 0;
 exports.Loader = Loader;
+exports.LoaderUtils = void 0;
 exports.LoadingManager = LoadingManager;
+exports.MOUSE = exports.LuminanceFormat = exports.LuminanceAlphaFormat = exports.LoopRepeat = exports.LoopPingPong = exports.LoopOnce = exports.LogLuvEncoding = void 0;
 exports.Material = Material;
 exports.MaterialLoader = MaterialLoader;
+exports.MaxEquation = exports.Matrix4 = exports.Matrix3 = exports.MathUtils = exports.Math = void 0;
 exports.Mesh = Mesh;
 exports.MeshBasicMaterial = MeshBasicMaterial;
 exports.MeshDepthMaterial = MeshDepthMaterial;
@@ -227,11 +273,15 @@ exports.MeshPhongMaterial = MeshPhongMaterial;
 exports.MeshPhysicalMaterial = MeshPhysicalMaterial;
 exports.MeshStandardMaterial = MeshStandardMaterial;
 exports.MeshToonMaterial = MeshToonMaterial;
+exports.MixOperation = exports.MirroredRepeatWrapping = exports.MinEquation = void 0;
 exports.MultiMaterial = MultiMaterial;
+exports.NotEqualStencilFunc = exports.NotEqualDepth = exports.NormalBlending = exports.NormalAnimationBlendMode = exports.NoToneMapping = exports.NoColors = exports.NoBlending = exports.NeverStencilFunc = exports.NeverDepth = exports.NearestMipmapNearestFilter = exports.NearestMipmapLinearFilter = exports.NearestMipMapNearestFilter = exports.NearestMipMapLinearFilter = exports.NearestFilter = exports.MultiplyOperation = exports.MultiplyBlending = void 0;
 exports.NumberKeyframeTrack = NumberKeyframeTrack;
 exports.Object3D = Object3D;
 exports.ObjectLoader = ObjectLoader;
+exports.OneMinusSrcColorFactor = exports.OneMinusSrcAlphaFactor = exports.OneMinusDstColorFactor = exports.OneMinusDstAlphaFactor = exports.OneFactor = exports.OctahedronGeometry = exports.OctahedronBufferGeometry = exports.ObjectSpaceNormalMap = void 0;
 exports.OrthographicCamera = OrthographicCamera;
+exports.PMREMGenerator = exports.PCFSoftShadowMap = exports.PCFShadowMap = void 0;
 exports.ParametricBufferGeometry = ParametricBufferGeometry;
 exports.ParametricGeometry = ParametricGeometry;
 exports.Particle = Particle;
@@ -240,36 +290,54 @@ exports.ParticleSystem = ParticleSystem;
 exports.ParticleSystemMaterial = ParticleSystemMaterial;
 exports.Path = Path;
 exports.PerspectiveCamera = PerspectiveCamera;
+exports.PlaneHelper = exports.PlaneGeometry = exports.PlaneBufferGeometry = exports.Plane = void 0;
 exports.PointCloud = PointCloud;
 exports.PointCloudMaterial = PointCloudMaterial;
 exports.PointLight = PointLight;
+exports.PointLightHelper = void 0;
 exports.Points = Points;
 exports.PointsMaterial = PointsMaterial;
+exports.PositionalAudio = exports.PolyhedronGeometry = exports.PolyhedronBufferGeometry = exports.PolarGridHelper = void 0;
 exports.PropertyBinding = PropertyBinding;
 exports.PropertyMixer = PropertyMixer;
 exports.QuadraticBezierCurve = QuadraticBezierCurve;
 exports.QuadraticBezierCurve3 = QuadraticBezierCurve3;
+exports.Quaternion = void 0;
 exports.QuaternionKeyframeTrack = QuaternionKeyframeTrack;
 exports.QuaternionLinearInterpolant = QuaternionLinearInterpolant;
+exports.REVISION = void 0;
+exports.RGIntegerFormat = exports.RGFormat = exports.RGB_S3TC_DXT1_Format = exports.RGB_PVRTC_4BPPV1_Format = exports.RGB_PVRTC_2BPPV1_Format = exports.RGB_ETC2_Format = exports.RGB_ETC1_Format = exports.RGBM7Encoding = exports.RGBM16Encoding = exports.RGBIntegerFormat = exports.RGBFormat = exports.RGBEFormat = exports.RGBEEncoding = exports.RGBDEncoding = exports.RGBA_S3TC_DXT5_Format = exports.RGBA_S3TC_DXT3_Format = exports.RGBA_S3TC_DXT1_Format = exports.RGBA_PVRTC_4BPPV1_Format = exports.RGBA_PVRTC_2BPPV1_Format = exports.RGBA_ETC2_EAC_Format = exports.RGBA_BPTC_Format = exports.RGBA_ASTC_8x8_Format = exports.RGBA_ASTC_8x6_Format = exports.RGBA_ASTC_8x5_Format = exports.RGBA_ASTC_6x6_Format = exports.RGBA_ASTC_6x5_Format = exports.RGBA_ASTC_5x5_Format = exports.RGBA_ASTC_5x4_Format = exports.RGBA_ASTC_4x4_Format = exports.RGBA_ASTC_12x12_Format = exports.RGBA_ASTC_12x10_Format = exports.RGBA_ASTC_10x8_Format = exports.RGBA_ASTC_10x6_Format = exports.RGBA_ASTC_10x5_Format = exports.RGBA_ASTC_10x10_Format = exports.RGBAIntegerFormat = exports.RGBAFormat = exports.RGBADepthPacking = exports.REVISION = void 0;
 exports.RawShaderMaterial = RawShaderMaterial;
+exports.Ray = void 0;
 exports.Raycaster = Raycaster;
 exports.RectAreaLight = RectAreaLight;
+exports.ShaderLib = exports.ShaderChunk = exports.SceneUtils = exports.Scene = exports.SRGB8_ALPHA8_ASTC_8x8_Format = exports.SRGB8_ALPHA8_ASTC_8x6_Format = exports.SRGB8_ALPHA8_ASTC_8x5_Format = exports.SRGB8_ALPHA8_ASTC_6x6_Format = exports.SRGB8_ALPHA8_ASTC_6x5_Format = exports.SRGB8_ALPHA8_ASTC_5x5_Format = exports.SRGB8_ALPHA8_ASTC_5x4_Format = exports.SRGB8_ALPHA8_ASTC_4x4_Format = exports.SRGB8_ALPHA8_ASTC_12x12_Format = exports.SRGB8_ALPHA8_ASTC_12x10_Format = exports.SRGB8_ALPHA8_ASTC_10x8_Format = exports.SRGB8_ALPHA8_ASTC_10x6_Format = exports.SRGB8_ALPHA8_ASTC_10x5_Format = exports.SRGB8_ALPHA8_ASTC_10x10_Format = exports.RingGeometry = exports.RingBufferGeometry = exports.ReverseSubtractEquation = exports.ReplaceStencilOp = exports.RepeatWrapping = exports.ReinhardToneMapping = exports.RedIntegerFormat = exports.RedFormat = void 0;
 exports.ShaderMaterial = ShaderMaterial;
 exports.ShadowMaterial = ShadowMaterial;
 exports.Shape = Shape;
+exports.ShapeGeometry = exports.ShapeBufferGeometry = void 0;
 exports.ShapePath = ShapePath;
+exports.ShortType = exports.ShapeUtils = void 0;
 exports.Skeleton = Skeleton;
+exports.SkeletonHelper = void 0;
 exports.SkinnedMesh = SkinnedMesh;
+exports.SphericalHarmonics3 = exports.Spherical = exports.SphereGeometry = exports.SphereBufferGeometry = exports.Sphere = exports.SmoothShading = void 0;
 exports.Spline = Spline;
 exports.SplineCurve = SplineCurve;
 exports.SplineCurve3 = SplineCurve3;
 exports.SpotLight = SpotLight;
+exports.SpotLightHelper = void 0;
 exports.Sprite = Sprite;
 exports.SpriteMaterial = SpriteMaterial;
+exports.StaticReadUsage = exports.StaticDrawUsage = exports.StaticCopyUsage = exports.SrcColorFactor = exports.SrcAlphaSaturateFactor = exports.SrcAlphaFactor = void 0;
 exports.StereoCamera = StereoCamera;
+exports.StreamCopyUsage = void 0;
+exports.StreamReadUsage = exports.StreamDrawUsage = exports.StreamCopyUsage = void 0;
 exports.StringKeyframeTrack = StringKeyframeTrack;
+exports.TextGeometry = exports.TextBufferGeometry = exports.TetrahedronGeometry = exports.TetrahedronBufferGeometry = exports.TangentSpaceNormalMap = exports.TOUCH = exports.SubtractiveBlending = exports.SubtractEquation = void 0;
 exports.Texture = Texture;
 exports.TextureLoader = TextureLoader;
+exports.UVMapping = exports.TubeGeometry = exports.TubeBufferGeometry = exports.TrianglesDrawMode = exports.TriangleStripDrawMode = exports.TriangleFanDrawMode = exports.Triangle = exports.TorusKnotGeometry = exports.TorusKnotBufferGeometry = exports.TorusGeometry = exports.TorusBufferGeometry = void 0;
 exports.Uint16Attribute = Uint16Attribute;
 exports.Uint16BufferAttribute = Uint16BufferAttribute;
 exports.Uint32Attribute = Uint32Attribute;
@@ -278,8 +346,10 @@ exports.Uint8Attribute = Uint8Attribute;
 exports.Uint8BufferAttribute = Uint8BufferAttribute;
 exports.Uint8ClampedAttribute = Uint8ClampedAttribute;
 exports.Uint8ClampedBufferAttribute = Uint8ClampedBufferAttribute;
+exports.Vector4 = exports.Vector3 = exports.Vector2 = exports.VSMShadowMap = exports.UnsignedShortType = exports.UnsignedShort565Type = exports.UnsignedShort5551Type = exports.UnsignedShort4444Type = exports.UnsignedIntType = exports.UnsignedInt248Type = exports.UnsignedByteType = exports.UniformsUtils = exports.UniformsLib = exports.Uniform = void 0;
 exports.VectorKeyframeTrack = VectorKeyframeTrack;
 exports.Vertex = Vertex;
+exports.VertexColors = void 0;
 exports.VideoTexture = VideoTexture;
 exports.WebGL1Renderer = WebGL1Renderer;
 exports.WebGLCubeRenderTarget = WebGLCubeRenderTarget;
@@ -288,11 +358,11 @@ exports.WebGLRenderTarget = WebGLRenderTarget;
 exports.WebGLRenderTargetCube = WebGLRenderTargetCube;
 exports.WebGLRenderer = WebGLRenderer;
 exports.WebGLUtils = WebGLUtils;
+exports.WireframeGeometry = void 0;
 exports.WireframeHelper = WireframeHelper;
+exports.WrapAroundEnding = void 0;
 exports.XHRLoader = XHRLoader;
-exports.InvertStencilOp = exports.InterpolateSmooth = exports.InterpolateLinear = exports.InterpolateDiscrete = exports.IntType = exports.IncrementWrapStencilOp = exports.IncrementStencilOp = exports.ImageUtils = exports.IcosahedronGeometry = exports.IcosahedronBufferGeometry = exports.HemisphereLightHelper = exports.HalfFloatType = exports.GridHelper = exports.GreaterStencilFunc = exports.GreaterEqualStencilFunc = exports.GreaterEqualDepth = exports.GreaterDepth = exports.GeometryUtils = exports.GammaEncoding = exports.GLSL3 = exports.GLSL1 = exports.Frustum = exports.FrontSide = exports.FogExp2 = exports.Fog = exports.FloatType = exports.FlatShading = exports.FaceColors = exports.Face3 = exports.ExtrudeGeometry = exports.ExtrudeBufferGeometry = exports.Euler = exports.EquirectangularRefractionMapping = exports.EquirectangularReflectionMapping = exports.EqualStencilFunc = exports.EqualDepth = exports.EdgesGeometry = exports.DynamicReadUsage = exports.DynamicDrawUsage = exports.DynamicCopyUsage = exports.DstColorFactor = exports.DstAlphaFactor = exports.DoubleSide = exports.DodecahedronGeometry = exports.DodecahedronBufferGeometry = exports.DirectionalLightHelper = exports.DepthStencilFormat = exports.DepthFormat = exports.DefaultLoadingManager = exports.DecrementWrapStencilOp = exports.DecrementStencilOp = exports.Cylindrical = exports.CylinderGeometry = exports.CylinderBufferGeometry = exports.CustomToneMapping = exports.CustomBlending = exports.CullFaceNone = exports.CullFaceFrontBack = exports.CullFaceFront = exports.CullFaceBack = exports.CubeUVRefractionMapping = exports.CubeUVReflectionMapping = exports.CubeRefractionMapping = exports.CubeReflectionMapping = exports.ConeGeometry = exports.ConeBufferGeometry = exports.Color = exports.Clock = exports.ClampToEdgeWrapping = exports.CircleGeometry = exports.CircleBufferGeometry = exports.CineonToneMapping = exports.CameraHelper = exports.Cache = exports.ByteType = exports.BoxHelper = exports.CubeGeometry = exports.BoxGeometry = exports.BoxBufferGeometry = exports.Box3Helper = exports.Box3 = exports.Box2 = exports.BasicShadowMap = exports.BasicDepthPacking = exports.BackSide = exports.AxesHelper = exports.AudioListener = exports.AudioContext = exports.AudioAnalyser = exports.Audio = exports.ArrowHelper = exports.AnimationUtils = exports.AlwaysStencilFunc = exports.AlwaysDepth = exports.AlphaFormat = exports.AdditiveBlending = exports.AdditiveAnimationBlendMode = exports.AddOperation = exports.AddEquation = exports.ACESFilmicToneMapping = void 0;
-exports.RGBFormat = exports.RGBEFormat = exports.RGBEEncoding = exports.RGBDEncoding = exports.RGBA_S3TC_DXT5_Format = exports.RGBA_S3TC_DXT3_Format = exports.RGBA_S3TC_DXT1_Format = exports.RGBA_PVRTC_4BPPV1_Format = exports.RGBA_PVRTC_2BPPV1_Format = exports.RGBA_ETC2_EAC_Format = exports.RGBA_BPTC_Format = exports.RGBA_ASTC_8x8_Format = exports.RGBA_ASTC_8x6_Format = exports.RGBA_ASTC_8x5_Format = exports.RGBA_ASTC_6x6_Format = exports.RGBA_ASTC_6x5_Format = exports.RGBA_ASTC_5x5_Format = exports.RGBA_ASTC_5x4_Format = exports.RGBA_ASTC_4x4_Format = exports.RGBA_ASTC_12x12_Format = exports.RGBA_ASTC_12x10_Format = exports.RGBA_ASTC_10x8_Format = exports.RGBA_ASTC_10x6_Format = exports.RGBA_ASTC_10x5_Format = exports.RGBA_ASTC_10x10_Format = exports.RGBAIntegerFormat = exports.RGBAFormat = exports.RGBADepthPacking = exports.REVISION = exports.Quaternion = exports.PositionalAudio = exports.PolyhedronGeometry = exports.PolyhedronBufferGeometry = exports.PolarGridHelper = exports.PointLightHelper = exports.PlaneHelper = exports.PlaneGeometry = exports.PlaneBufferGeometry = exports.Plane = exports.PMREMGenerator = exports.PCFSoftShadowMap = exports.PCFShadowMap = exports.OneMinusSrcColorFactor = exports.OneMinusSrcAlphaFactor = exports.OneMinusDstColorFactor = exports.OneMinusDstAlphaFactor = exports.OneFactor = exports.OctahedronGeometry = exports.OctahedronBufferGeometry = exports.ObjectSpaceNormalMap = exports.NotEqualStencilFunc = exports.NotEqualDepth = exports.NormalBlending = exports.NormalAnimationBlendMode = exports.NoToneMapping = exports.NoColors = exports.NoBlending = exports.NeverStencilFunc = exports.NeverDepth = exports.NearestMipmapNearestFilter = exports.NearestMipmapLinearFilter = exports.NearestMipMapNearestFilter = exports.NearestMipMapLinearFilter = exports.NearestFilter = exports.MultiplyOperation = exports.MultiplyBlending = exports.MixOperation = exports.MirroredRepeatWrapping = exports.MinEquation = exports.MaxEquation = exports.Matrix4 = exports.Matrix3 = exports.MathUtils = exports.Math = exports.MOUSE = exports.LuminanceFormat = exports.LuminanceAlphaFormat = exports.LoopRepeat = exports.LoopPingPong = exports.LoopOnce = exports.LogLuvEncoding = exports.LoaderUtils = exports.LinearToneMapping = exports.LinearMipmapNearestFilter = exports.LinearMipmapLinearFilter = exports.LinearMipMapNearestFilter = exports.LinearMipMapLinearFilter = exports.LinearFilter = exports.LinearEncoding = exports.LineStrip = exports.LinePieces = exports.Line3 = exports.LessStencilFunc = exports.LessEqualStencilFunc = exports.LessEqualDepth = exports.LessDepth = exports.Layers = exports.LatheGeometry = exports.LatheBufferGeometry = exports.KeepStencilOp = void 0;
-exports.sRGBEncoding = exports.ZeroStencilOp = exports.ZeroSlopeEnding = exports.ZeroFactor = exports.ZeroCurvatureEnding = exports.WrapAroundEnding = exports.WireframeGeometry = exports.VertexColors = exports.Vector4 = exports.Vector3 = exports.Vector2 = exports.VSMShadowMap = exports.UnsignedShortType = exports.UnsignedShort565Type = exports.UnsignedShort5551Type = exports.UnsignedShort4444Type = exports.UnsignedIntType = exports.UnsignedInt248Type = exports.UnsignedByteType = exports.UniformsUtils = exports.UniformsLib = exports.Uniform = exports.UVMapping = exports.TubeGeometry = exports.TubeBufferGeometry = exports.TrianglesDrawMode = exports.TriangleStripDrawMode = exports.TriangleFanDrawMode = exports.Triangle = exports.TorusKnotGeometry = exports.TorusKnotBufferGeometry = exports.TorusGeometry = exports.TorusBufferGeometry = exports.TextGeometry = exports.TextBufferGeometry = exports.TetrahedronGeometry = exports.TetrahedronBufferGeometry = exports.TangentSpaceNormalMap = exports.TOUCH = exports.SubtractiveBlending = exports.SubtractEquation = exports.StreamReadUsage = exports.StreamDrawUsage = exports.StreamCopyUsage = exports.StaticReadUsage = exports.StaticDrawUsage = exports.StaticCopyUsage = exports.SrcColorFactor = exports.SrcAlphaSaturateFactor = exports.SrcAlphaFactor = exports.SpotLightHelper = exports.SphericalHarmonics3 = exports.Spherical = exports.SphereGeometry = exports.SphereBufferGeometry = exports.Sphere = exports.SmoothShading = exports.SkeletonHelper = exports.ShortType = exports.ShapeUtils = exports.ShapeGeometry = exports.ShapeBufferGeometry = exports.ShaderLib = exports.ShaderChunk = exports.SceneUtils = exports.Scene = exports.SRGB8_ALPHA8_ASTC_8x8_Format = exports.SRGB8_ALPHA8_ASTC_8x6_Format = exports.SRGB8_ALPHA8_ASTC_8x5_Format = exports.SRGB8_ALPHA8_ASTC_6x6_Format = exports.SRGB8_ALPHA8_ASTC_6x5_Format = exports.SRGB8_ALPHA8_ASTC_5x5_Format = exports.SRGB8_ALPHA8_ASTC_5x4_Format = exports.SRGB8_ALPHA8_ASTC_4x4_Format = exports.SRGB8_ALPHA8_ASTC_12x12_Format = exports.SRGB8_ALPHA8_ASTC_12x10_Format = exports.SRGB8_ALPHA8_ASTC_10x8_Format = exports.SRGB8_ALPHA8_ASTC_10x6_Format = exports.SRGB8_ALPHA8_ASTC_10x5_Format = exports.SRGB8_ALPHA8_ASTC_10x10_Format = exports.RingGeometry = exports.RingBufferGeometry = exports.ReverseSubtractEquation = exports.ReplaceStencilOp = exports.RepeatWrapping = exports.ReinhardToneMapping = exports.RedIntegerFormat = exports.RedFormat = exports.Ray = exports.RGIntegerFormat = exports.RGFormat = exports.RGB_S3TC_DXT1_Format = exports.RGB_PVRTC_4BPPV1_Format = exports.RGB_PVRTC_2BPPV1_Format = exports.RGB_ETC2_Format = exports.RGB_ETC1_Format = exports.RGBM7Encoding = exports.RGBM16Encoding = exports.RGBIntegerFormat = void 0;
+exports.sRGBEncoding = exports.ZeroStencilOp = exports.ZeroSlopeEnding = exports.ZeroFactor = exports.ZeroCurvatureEnding = void 0;
 
 // Polyfills
 if (Number.EPSILON === undefined) {
@@ -7029,9 +7099,9 @@ function Material() {
 Material.prototype = Object.assign(Object.create(EventDispatcher.prototype), {
   constructor: Material,
   isMaterial: true,
-  onBeforeCompile: function ()
-  /* shaderobject, renderer */
-  {},
+  onBeforeCompile: function
+    /* shaderobject, renderer */
+  () {},
   customProgramCacheKey: function () {
     return this.onBeforeCompile.toString();
   },
@@ -18658,9 +18728,9 @@ function WebGLRenderer(parameters) {
     _isContextLost = true;
   }
 
-  function onContextRestore()
-  /* event */
-  {
+  function
+    /* event */
+  onContextRestore() {
     console.log('THREE.WebGLRenderer: Context Restored.');
     _isContextLost = false;
     initGLContext();
@@ -19605,9 +19675,7 @@ class FogExp2 {
     return new FogExp2(this.color, this.density);
   }
 
-  toJSON()
-  /* meta */
-  {
+  toJSON() {
     return {
       type: 'FogExp2',
       color: this.color.getHex(),
@@ -19634,9 +19702,7 @@ class Fog {
     return new Fog(this.color, this.near, this.far);
   }
 
-  toJSON()
-  /* meta */
-  {
+  toJSON() {
     return {
       type: 'Fog',
       color: this.color.getHex(),
@@ -25337,14 +25403,14 @@ Object.assign(Interpolant.prototype, {
     return result;
   },
   // Template methods for derived classes:
-  interpolate_: function ()
-  /* i1, t0, t, t1 */
-  {
+  interpolate_: function
+    /* i1, t0, t, t1 */
+  () {
     throw new Error('call to abstract method'); // implementations shall return this.resultBuffer
   },
-  intervalChanged_: function ()
-  /* i1, t0, t1 */
-  {// empty
+  intervalChanged_: function
+    /* i1, t0, t1 */
+  () {// empty
   }
 }); // DECLARE ALIAS AFTER assign prototype
 
@@ -26341,18 +26407,18 @@ function Loader(manager) {
 }
 
 Object.assign(Loader.prototype, {
-  load: function ()
-  /* url, onLoad, onProgress, onError */
-  {},
+  load: function
+    /* url, onLoad, onProgress, onError */
+  () {},
   loadAsync: function (url, onProgress) {
     const scope = this;
     return new Promise(function (resolve, reject) {
       scope.load(url, resolve, onProgress, reject);
     });
   },
-  parse: function ()
-  /* data */
-  {},
+  parse: function
+    /* data */
+  () {},
   setCrossOrigin: function (crossOrigin) {
     this.crossOrigin = crossOrigin;
     return this;
@@ -26897,9 +26963,9 @@ function Curve() {
 Object.assign(Curve.prototype, {
   // Virtual base class method to overwrite and implement in subclasses
   //	- t [0 .. 1]
-  getPoint: function ()
-  /* t, optionalTarget */
-  {
+  getPoint: function
+    /* t, optionalTarget */
+  () {
     console.warn('THREE.Curve: .getPoint() not implemented.');
     return null;
   },
@@ -33428,9 +33494,9 @@ function ImmediateRenderObject(material) {
   Object3D.call(this);
   this.material = material;
 
-  this.render = function ()
-  /* renderCallback */
-  {};
+  this.render = function
+    /* renderCallback */
+  () {};
 
   this.hasPositions = false;
   this.hasNormals = false;
@@ -35306,19 +35372,19 @@ function Spline(points) {
 
 Spline.prototype = Object.create(CatmullRomCurve3.prototype);
 Object.assign(Spline.prototype, {
-  initFromArray: function ()
-  /* a */
-  {
+  initFromArray: function
+    /* a */
+  () {
     console.error('THREE.Spline: .initFromArray() has been removed.');
   },
-  getControlPointsArray: function ()
-  /* optionalTarget */
-  {
+  getControlPointsArray: function
+    /* optionalTarget */
+  () {
     console.error('THREE.Spline: .getControlPointsArray() has been removed.');
   },
-  reparametrizeByArcLength: function ()
-  /* samplingCoef */
-  {
+  reparametrizeByArcLength: function
+    /* samplingCoef */
+  () {
     console.error('THREE.Spline: .reparametrizeByArcLength() has been removed.');
   }
 }); //
@@ -35363,14 +35429,14 @@ Object.assign(Loader.prototype, {
   }
 });
 Loader.Handlers = {
-  add: function ()
-  /* regex, loader */
-  {
+  add: function
+    /* regex, loader */
+  () {
     console.error('THREE.Loader: Handlers.add() has been removed. Use LoadingManager.addHandler() instead.');
   },
-  get: function ()
-  /* file */
-  {
+  get: function
+    /* file */
+  () {
     console.error('THREE.Loader: Handlers.get() has been removed. Use LoadingManager.getHandler() instead.');
   }
 };
@@ -35472,18 +35538,18 @@ Object.assign(Matrix3.prototype, {
     console.warn('THREE.Matrix3: .multiplyVector3() has been removed. Use vector.applyMatrix3( matrix ) instead.');
     return vector.applyMatrix3(this);
   },
-  multiplyVector3Array: function ()
-  /* a */
-  {
+  multiplyVector3Array: function
+    /* a */
+  () {
     console.error('THREE.Matrix3: .multiplyVector3Array() has been removed.');
   },
   applyToBufferAttribute: function (attribute) {
     console.warn('THREE.Matrix3: .applyToBufferAttribute() has been removed. Use attribute.applyMatrix3( matrix ) instead.');
     return attribute.applyMatrix3(this);
   },
-  applyToVector3Array: function ()
-  /* array, offset, length */
-  {
+  applyToVector3Array: function
+    /* array, offset, length */
+  () {
     console.error('THREE.Matrix3: .applyToVector3Array() has been removed.');
   }
 });
@@ -35515,9 +35581,9 @@ Object.assign(Matrix4.prototype, {
     console.warn('THREE.Matrix4: .multiplyVector4() has been removed. Use vector.applyMatrix4( matrix ) instead.');
     return vector.applyMatrix4(this);
   },
-  multiplyVector3Array: function ()
-  /* a */
-  {
+  multiplyVector3Array: function
+    /* a */
+  () {
     console.error('THREE.Matrix4: .multiplyVector3Array() has been removed.');
   },
   rotateAxis: function (v) {
@@ -35547,9 +35613,9 @@ Object.assign(Matrix4.prototype, {
     console.warn('THREE.Matrix4: .applyToBufferAttribute() has been removed. Use attribute.applyMatrix4( matrix ) instead.');
     return attribute.applyMatrix4(this);
   },
-  applyToVector3Array: function ()
-  /* array, offset, length */
-  {
+  applyToVector3Array: function
+    /* array, offset, length */
+  () {
     console.error('THREE.Matrix4: .applyToVector3Array() has been removed.');
   },
   makeFrustum: function (left, right, bottom, top, near, far) {
@@ -35886,9 +35952,9 @@ Object.defineProperties(BufferAttribute.prototype, {
       console.warn('THREE.BufferAttribute: .dynamic has been deprecated. Use .usage instead.');
       return this.usage === DynamicDrawUsage;
     },
-    set: function ()
-    /* value */
-    {
+    set: function
+      /* value */
+    () {
       console.warn('THREE.BufferAttribute: .dynamic has been deprecated. Use .usage instead.');
       this.setUsage(DynamicDrawUsage);
     }
@@ -35900,14 +35966,14 @@ Object.assign(BufferAttribute.prototype, {
     this.setUsage(value === true ? DynamicDrawUsage : StaticDrawUsage);
     return this;
   },
-  copyIndicesArray: function ()
-  /* indices */
-  {
+  copyIndicesArray: function
+    /* indices */
+  () {
     console.error('THREE.BufferAttribute: .copyIndicesArray() has been removed.');
   },
-  setArray: function ()
-  /* array */
-  {
+  setArray: function
+    /* array */
+  () {
     console.error('THREE.BufferAttribute: .setArray has been removed. Use BufferGeometry .setAttribute to replace/resize attribute buffers');
   }
 });
@@ -36015,9 +36081,9 @@ Object.assign(InterleavedBuffer.prototype, {
     this.setUsage(value === true ? DynamicDrawUsage : StaticDrawUsage);
     return this;
   },
-  setArray: function ()
-  /* array */
-  {
+  setArray: function
+    /* array */
+  () {
     console.error('THREE.InterleavedBuffer: .setArray has been removed. Use BufferGeometry .setAttribute to replace/resize attribute buffers');
   }
 }); //
@@ -36251,9 +36317,9 @@ Object.defineProperties(WebGLRenderer.prototype, {
       console.warn('THREE.WebGLRenderer: .shadowMapCullFace has been removed. Set Material.shadowSide instead.');
       return undefined;
     },
-    set: function ()
-    /* value */
-    {
+    set: function
+      /* value */
+    () {
       console.warn('THREE.WebGLRenderer: .shadowMapCullFace has been removed. Set Material.shadowSide instead.');
     }
   },
@@ -36304,9 +36370,9 @@ Object.defineProperties(WebGLShadowMap.prototype, {
       console.warn('THREE.WebGLRenderer: .shadowMap.cullFace has been removed. Set Material.shadowSide instead.');
       return undefined;
     },
-    set: function ()
-    /* cullFace */
-    {
+    set: function
+      /* cullFace */
+    () {
       console.warn('THREE.WebGLRenderer: .shadowMap.cullFace has been removed. Set Material.shadowSide instead.');
     }
   },
@@ -36529,19 +36595,19 @@ function JSONLoader() {
 
 
 const SceneUtils = {
-  createMultiMaterialObject: function ()
-  /* geometry, materials */
-  {
+  createMultiMaterialObject: function
+    /* geometry, materials */
+  () {
     console.error('THREE.SceneUtils has been moved to /examples/jsm/utils/SceneUtils.js');
   },
-  detach: function ()
-  /* child, parent, scene */
-  {
+  detach: function
+    /* child, parent, scene */
+  () {
     console.error('THREE.SceneUtils has been moved to /examples/jsm/utils/SceneUtils.js');
   },
-  attach: function ()
-  /* child, scene, parent */
-  {
+  attach: function
+    /* child, scene, parent */
+  () {
     console.error('THREE.SceneUtils has been moved to /examples/jsm/utils/SceneUtils.js');
   }
 }; //
@@ -36562,13 +36628,13 @@ if (typeof __THREE_DEVTOOLS__ !== 'undefined') {
   /* eslint-enable no-undef */
 
 }
-},{}],"../../../../../../../../node_modules/three/examples/jsm/controls/OrbitControls.js":[function(require,module,exports) {
+},{}],"node_modules/three/examples/jsm/controls/OrbitControls.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.MapControls = exports.OrbitControls = void 0;
+exports.OrbitControls = exports.MapControls = void 0;
 
 var _threeModule = require("../../../build/three.module.js");
 
@@ -36963,9 +37029,9 @@ var OrbitControls = function (object, domElement) {
     scope.update();
   }
 
-  function handleMouseUp()
-  /*event*/
-  {// no-op
+  function
+    /*event*/
+  handleMouseUp() {// no-op
   }
 
   function handleMouseWheel(event) {
@@ -37098,9 +37164,9 @@ var OrbitControls = function (object, domElement) {
     if (scope.enableRotate) handleTouchMoveRotate(event);
   }
 
-  function handleTouchEnd()
-  /*event*/
-  {// no-op
+  function
+    /*event*/
+  handleTouchEnd() {// no-op
   } //
   // event handlers - FSM: listen for events and reset state
   //
@@ -37395,7 +37461,7 @@ var MapControls = function (object, domElement) {
 exports.MapControls = MapControls;
 MapControls.prototype = Object.create(_threeModule.EventDispatcher.prototype);
 MapControls.prototype.constructor = MapControls;
-},{"../../../build/three.module.js":"../../../../../../../../node_modules/three/build/three.module.js"}],"../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"../../../build/three.module.js":"node_modules/three/build/three.module.js"}],"node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -37422,12 +37488,12 @@ function getBundleURL() {
 }
 
 function getBaseURL(url) {
-  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)\/[^/]+$/, '$1') + '/';
+  return ('' + url).replace(/^((?:https?|file|ftp|chrome-extension|moz-extension):\/\/.+)?\/[^/]+(?:\?.*)?$/, '$1') + '/';
 }
 
 exports.getBundleURL = getBundleURLCached;
 exports.getBaseURL = getBaseURL;
-},{}],"../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
+},{}],"node_modules/parcel-bundler/src/builtins/css-loader.js":[function(require,module,exports) {
 var bundle = require('./bundle-url');
 
 function updateLink(link) {
@@ -37462,12 +37528,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
+},{"./bundle-url":"node_modules/parcel-bundler/src/builtins/bundle-url.js"}],"src/styles.css":[function(require,module,exports) {
 var reloadCSS = require('_css_loader');
 
 module.hot.dispose(reloadCSS);
 module.hot.accept(reloadCSS);
-},{"_css_loader":"../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js"}],"src/index.js":[function(require,module,exports) {
 "use strict";
 
 var THREE = _interopRequireWildcard(require("three"));
@@ -37476,9 +37542,9 @@ var _OrbitControls = require("three/examples/jsm/controls/OrbitControls.js");
 
 require("./styles.css");
 
-function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
 
 var scene, camera, renderer;
 var geometry, material, cube;
@@ -37583,7 +37649,7 @@ function onWindowResize() {
   camera.aspect = sceneWidth / sceneHeight;
   camera.updateProjectionMatrix();
 }
-},{"three":"../../../../../../../../node_modules/three/build/three.module.js","three/examples/jsm/controls/OrbitControls.js":"../../../../../../../../node_modules/three/examples/jsm/controls/OrbitControls.js","./styles.css":"src/styles.css"}],"../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"three":"node_modules/three/build/three.module.js","three/examples/jsm/controls/OrbitControls.js":"node_modules/three/examples/jsm/controls/OrbitControls.js","./styles.css":"src/styles.css"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -37611,7 +37677,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57632" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63717" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -37787,5 +37853,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
+},{}]},{},["node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/index.js"], null)
 //# sourceMappingURL=/src.a2b27638.js.map

@@ -11,7 +11,7 @@ const IndexPage = ({data}) => (
     <Navbar/>
     <SEO title="Home" />
     <p></p>
-    <h1>Hello and Welcome to CPC 2020/2021!</h1>
+    <h1>Hello and Welcome to CPC 2021/2022!</h1>
     <p></p>
     <p>Here you will find the workshop materials with embedded code examples to help your learning and development.</p>
     <p></p>

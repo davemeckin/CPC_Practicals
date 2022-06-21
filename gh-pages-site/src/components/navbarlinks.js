@@ -42,13 +42,15 @@ const NavbarLinks = () => {
   return (
     <>
       <NavItem to="/">Home</NavItem>
-      <NavItem to="/workshop_01">Week 01</NavItem>
-      <NavItem to="/workshop_02">Week 02</NavItem>
-      <NavItem to="/workshop_03">Week 03</NavItem>
-      <NavItem to="/workshop_04">Week 04</NavItem>
-      <NavItem to="/workshop_06">Week 06</NavItem>
-      <NavItem to="/workshop_07">Week 07/08</NavItem>
-      <NavItem to="/workshop_08">Week 07/08 Part 2</NavItem>
+      <NavItem to="/workshop_01">WS 01</NavItem>
+      <NavItem to="/workshop_02">WS 02</NavItem>
+      <NavItem to="/workshop_03">WS 03</NavItem>
+      <NavItem to="/workshop_04">WS 04</NavItem>
+      <NavItem to="/workshop_06">WS 06</NavItem>
+      <NavItem to="/workshop_07">WS 08</NavItem>
+      <NavItem to="/workshop_08">WS 09</NavItem>
+      <NavItem to="/workshop_09">Optional 10</NavItem>
+      <NavItem to="/workshop_10">Optional 11</NavItem>
       
     </>
   )

@@ -27,7 +27,7 @@ const Workshop06 = ({data}) => (
     <SEO title="Workshop 06" />
     <p></p>
     <h1>Hello and welcome back!</h1>
-    <p>We looked at some examples and the coursework in the fifth workshop. The sixth workshop is aimed at helping you understand how we can undertake a few different tasks to useful to us while designing our projects. So, we will:</p>
+    <p> The fifth workshop (in week six) is aimed at helping you understand how we can undertake a few different tasks to useful to us while designing our projects. So, we will:</p>
 	<p>
      <ul>
 		  <li>Work from starter code provided that you will fork a new codesandbox from. This is because, to demonstrate the concepts around loading models and controlling synths, we've scaffolding your learning a bit for this week's challenge. </li>
@@ -108,7 +108,7 @@ let mixers;`} language = {"javascript"} theme = {dracula} showLineNumbers = {fal
   </code>
 <p></p>
 
-<p>Now we're going to continue working in our loadModels function and define to callbacks that will process our models once they are loaded by the GLTFLoader. There's quite a bit of code here, so comments are provided to explain what is going on:</p>
+<p>Now we're going to continue working in our loadModels function and define two callbacks that will process our models once they are loaded by the GLTFLoader. We're going to give you the first callback for loading models and animations, then we'd like you to have a go at a simpler callback for loading models without animations. There's quite a bit of code here, so comments are provided to explain what is going on:</p>
   <p></p>
    <code>
   <CodeBlock text = {`   const onLoadAnimation = function (gltf, position) {
@@ -128,18 +128,55 @@ let mixers;`} language = {"javascript"} theme = {dracula} showLineNumbers = {fal
     scene.add(flamingo); // add our model to our scene
   };
 
-  const onLoadStatic = function (gltf, position) {
-    robot = gltf.scene.children[0]; // assign the first child of the scene contained in the gltf file to a variable called robot
-    robot.scale.multiplyScalar(1.125);
-    robot.position.copy(position); //copy the position passed from the load function call
-
-    modelLoaded = true; // once our model has loaded, set our modelLoaded boolean flag to true
-    scene.add(robot); // add our model to the scene
-  };`} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
+  `} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
 
   </code>
-<p></p>
+  <p></p>
+  <p>Ok, now you've seen how to load models and their animations. Can you try and write your own callback called <code>onLoadStatic</code> that does the following:</p>
 
+  <ul>
+		  <li>Assigns the first child of the scene contained in the gltf file to the variable <code>robot</code> </li>
+		  <li>Scales the robot by 1.125 to make it a bit bigger (a similar size to the pelicans)</li>
+		  <li>Copies the <code>position</code> parameter coming into the function to the robot's position.</li>
+      <li>Sets our <code>modelLoaded</code> boolean flag to "true"</li>
+		  <li>Adds our robot to the scene</li>
+		  
+	</ul>
+  <p>The callback function should be defined within the <code>loadModels</code> function just below the <code>onLoadAnimation</code> definition. All of the functionality described above, apart from the setting of the <code>modelLoaded</code> flag can be adapted from the <code>onLoadAnimation</code> callback function definition.</p>
+<p></p>
+<Accordion allowZeroExpanded = "true">
+   <AccordionItem>
+                <AccordionItemHeading>
+                    <AccordionItemButton>
+                        Don't worry if this is a bit of a head scratcher. This is what your <code>onLoadStatic</code> should look like:
+                    </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                    <p>
+                         <code>
+            <CodeBlock text = {`
+            const onLoadStatic = function (gltf, position) {
+              robot = gltf.scene.children[0]; // assign the first child of the scene contained in the gltf file to a variable called robot
+              robot.scale.multiplyScalar(1.125);
+              robot.position.copy(position); //copy the position passed from the load function call
+          
+              modelLoaded = true; // once our model has loaded, set our modelLoaded boolean flag to true
+              scene.add(robot); // add our model to the scene
+            };
+            
+            `} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
+
+    
+              </code>
+        
+                    </p>
+                </AccordionItemPanel>
+            </AccordionItem>
+           
+            
+      </Accordion>
+
+      <p></p>
 <p></p>
 
 <p>Still in the loadModels function, let's add a couple more callback functions that will help tell us that the models are loading and if there are any errors:</p>
@@ -161,10 +198,10 @@ let mixers;`} language = {"javascript"} theme = {dracula} showLineNumbers = {fal
 
 <p></p>
 
-<p>And now beneath our callback functions, but still in the loadModels function, let's create some initial positions for our models, then actually load them. The load function will call our corresponding callback functions once the model is loaded:</p>
+<p>And now beneath our callback functions, but still in the loadModels function, let's create some initial positions for our models, then actually load them. The load function will call our corresponding callback functions once the model is loaded. Once again, we've done the animated flamingo version first, then it's up to you to have a go at the robot one:</p>
   <p></p>
    <code>
-  <CodeBlock text = {`  const flamingoPosition = new THREE.Vector3(-7.5, 0, -10); // create new vector for the position of our flamingo
+  <CodeBlock text = {`const flamingoPosition = new THREE.Vector3(-7.5, 0, -10); // create new vector for the position of our flamingo
   loader.load(
     // call the loader's load function
     "models/Flamingo.glb", // specify our file path
@@ -176,19 +213,47 @@ let mixers;`} language = {"javascript"} theme = {dracula} showLineNumbers = {fal
     onError // specify error callback
   );
 
-  const robotPos = new THREE.Vector3(0, 0, 0);
-  loader.load(
-    // call the loader's load function
-    "models/robot.gltf", // specify our file path
-    function (gltf) {
-      // specify the callback function to call once the model has loaded
-      onLoadStatic(gltf, robotPos);
-    },
-    onProgress, // specify progress callback
-    onError // specify error callback
-  );`} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
+  `} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
 
   </code>
+
+  <p></p>
+  <p>So, now you've made the flamingo loading block, have a go and the robot and put it at a position of <code>0, 0, 0</code> i.e right in the middle of our scene. This should have a variable named <code>robotPos</code> and should call the <code>onLoadStatic</code> callback.</p>
+  <p></p>
+<Accordion allowZeroExpanded = "true">
+   <AccordionItem>
+                <AccordionItemHeading>
+                    <AccordionItemButton>
+                        Hopefully this should have been smooth sailing for you. Do ask for help if you need it, but this is what your <code>robotPos</code> and loading block should look like:
+                    </AccordionItemButton>
+                </AccordionItemHeading>
+                <AccordionItemPanel>
+                    <p>
+                         <code>
+            <CodeBlock text = {`const robotPos = new THREE.Vector3(0, 0, 0);
+           loader.load(
+             // call the loader's load function
+             "models/robot.gltf", // specify our file path
+             function (gltf) {
+               // specify the callback function to call once the model has loaded
+               onLoadStatic(gltf, robotPos);
+             },
+             onProgress, // specify progress callback
+             onError // specify error callback
+           );   
+            `} language = {"javascript"} theme = {dracula} showLineNumbers = {false} class = "codeBlocks" />
+
+    
+              </code>
+        
+                    </p>
+                </AccordionItemPanel>
+            </AccordionItem>
+           
+            
+      </Accordion>
+
+      <p></p>
 <p></p>
   <p>You may notice that our flamingo is a .glb file and the robot is .gltf. They're essentially just different ways of formatting model data. Take a look <a href="https://discourse.threejs.org/t/file-and-loading-differences-for-glb-vs-gltf/5390" target="_blank">here</a> to see the difference.</p>
    <p></p>
@@ -308,7 +373,7 @@ let mixers;`} language = {"javascript"} theme = {dracula} showLineNumbers = {fal
    <AccordionItem>
                 <AccordionItemHeading>
                     <AccordionItemButton>
-                        So, the update function should now look like this:
+                        So, the entire update function should now look like this:
                     </AccordionItemButton>
                 </AccordionItemHeading>
                 <AccordionItemPanel>
@@ -349,8 +414,8 @@ let mixers;`} language = {"javascript"} theme = {dracula} showLineNumbers = {fal
 
     <p>In our init() function, we will need to do the following:</p>
     <ul>
-      <li>First we need to make a Tone.player - so let's create a global player variable at the top of index.js so we can assign it to that. Remember how we did this in the fourth week? Check back on that workshop if you can't remember. We've provided you with a couple of sound files in the project, but you can obviously use your own if they are small .mp3s.</li>
-       <li>Instead of connecting the player to a crossfading mixer like last time, this time we'll just connect it directly to the master out using the .toDestination method.</li>
+      <li>First we need to make a Tone.player - so let's create a global <code>player</code> variable at the top of index.js so we can assign it to that. Remember how we did this in the fourth week? Check back on that workshop if you can't remember. We've provided you with a couple of sound files in the project, but you can obviously use your own if they are small .mp3s.</li>
+       <li>We'll then connect it directly to the master out using the <code>.toDestination()</code> method.</li>
        <li>We will also create a new <a href="https://tonejs.github.io/docs/14.7.58/Meter.html" target="_blank">Tone.Meter</a> object. This will allow us to the get RMS level of our audio signal so that we can apply it our robot's position.</li>
        <li>We will then set the smoothing property of our meter to 0.8. Remember, we access the meter's properties by using the dot (.) operator.</li>
        <li>Finally, we need to connect the player to the meter using the .connect() method, the syntax for this can be found in the first example on the webpage linked above from Tone.js documentation. </li>
@@ -633,9 +698,9 @@ function triggerRelease() {
 
     <p>OK so hopefully now you have made a couple of little fun projects this week! Here are some stretch goals:
     <ul>
-    	<li>For the first project in tasks 1 and 2, try and find another low poly model, perhaps from <a href="https://sketchfab.com/" target="_blank">Sketchfab</a>, where you'll have to create an account. Or you can download the <a href="https://github.com/mrdoob/three.js/" target="_blank">Three js</a>  three js development files from github, and these contain loads of models in the examples folder</li>
+    	<li>For the first project in tasks 1 and 2, try and find another low poly model, perhaps from <a href="https://sketchfab.com/" target="_blank">Sketchfab</a>, where you'll have to create an account. Or you can download the <a href="https://github.com/mrdoob/three.js/" target="_blank">Three js</a>  three js development files from github, and these contain loads of models in the examples folder. Remember, that your models have to be low poly and should not be large files!</li>
       <li>For sphere synth project (task 3), can you add some instructions to the overlay at the start so that it makes it easier to use?</li>
-    	<li>Again, for the sphere synth project (task 3), can you package the sphere and sound functionality up into classes in a separate javascript file? Then you could make multiple sphere synths with different kinds of sound properties to make an instrument. Take a look at the <a href="https://tonejs.github.io/examples/" target="_blank">Instruments Section</a> on the Tone.js examples site for some inspiration.</li>
+    	<li>Again, for the sphere synth project (task 3), can you package the sphere and sound functionality up into classes? Then you could make multiple sphere synths with different kinds of sound properties to make an instrument. Take a look at the <a href="https://tonejs.github.io/examples/" target="_blank">Instruments Section</a> on the Tone.js examples site for some inspiration.</li>
     	<li>Also for the sphere synth project. Could you adapt it to make it respond to keyboard key presses rather than mouse interaction? </li> 
     </ul>
     </p>
